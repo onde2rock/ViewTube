@@ -95,7 +95,7 @@ var page = {win: window, doc: document, body: document.body, url: window.locatio
 // Player
 var player = {};
 var feature = {'autoplay': true, 'definition': true, 'container': true, 'dash': false, 'direct': false, 'widesize': true, 'fullsize': true};
-var option = {'plugin': 'Auto', 'autoplay': false, 'autoget': false, 'definition': 'HD', 'container': 'MP4', 'dash': false, 'direct': false, 'widesize': false, 'fullsize': false};
+var option = {'plugin': 'Auto', 'autoplay': false, 'autoget': false, 'definition': 'HD', 'container': 'MP4', 'dash': false,'addSound': false 'direct': false, 'widesize': false, 'fullsize': false};
 var plugins = ['Auto', 'Alt', 'HTML5', 'VLC', 'MP4', 'MPEG', 'FLV', 'VTP'];
 if (navigator.platform.indexOf('Win') != -1) plugins = plugins.concat(['WMP', 'WMP2', 'QT']);
 else if (navigator.platform.indexOf('Mac') != -1) plugins = plugins.concat(['QT']);
@@ -250,6 +250,17 @@ function createMyElement(type, content, event, action, target) {
 	}
 	setMyOptions('dash', option['dash']);
       }
+
+      else if (action == 'addSound') {
+  option['addSound'] = (option['addSound']) ? false : true;
+  if (option['addSound']) {
+    styleMyElement(player['buttonaddSound'], {color: '#008080', textShadow: '0px 1px 1px #CCCCCC'});
+  }
+  else {
+    styleMyElement(player['buttonaddSound'], {color: '#CCCCCC', textShadow: '0px 0px 0px'});
+  }
+  setMyOptions('addSound', option['addSound']);
+      }    
       else if (action == 'direct') {
 	option['direct'] = (option['direct']) ? false : true;
 	if (option['direct']) {
@@ -437,6 +448,15 @@ function createMyPlayer() {
     styleMyElement(player['buttonDASH'], {height: panelItemHeight + 'px', border: '1px solid #CCCCCC', borderRadius: '3px', padding: '0px 5px', display: 'inline', color: '#CCCCCC', fontSize: '12px', cursor: 'pointer'});
     if (option['dash']) styleMyElement(player['buttonDASH'], {color: '#008080', textShadow: '0px 1px 1px #CCCCCC'});
     appendMyElement(player['playerPanel'], player['buttonDASH']);
+  }
+
+        /* Panel addSound Button */
+  if (feature['dash']) {
+    player['buttonaddSound'] = createMyElement('div', 'addSound', 'click', 'addSound', '');
+    player['buttonaddSound'].title = '{Add sound to Video only format(only for VTP)}';
+    styleMyElement(player['buttonaddSound'], {height: panelItemHeight + 'px', border: '1px solid #CCCCCC', borderRadius: '3px', padding: '0px 5px', display: 'inline', color: '#CCCCCC', fontSize: '12px', cursor: 'pointer'});
+    if (option['addSound']) styleMyElement(player['buttonaddSound'], {color: '#008080', textShadow: '0px 1px 1px #CCCCCC'});
+    appendMyElement(player['playerPanel'], player['buttonaddSound']);
   }
 
   /* Panel Direct Button */
