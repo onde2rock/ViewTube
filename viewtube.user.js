@@ -1310,10 +1310,10 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
 	'251': 'High Bitrate Audio Opus',
 	'266': 'Ultra High Definition Video MP4',
 	'272': 'Ultra High Definition Video WebM',
-	'298': 'High Definition Video MP4',
-	'299': 'Full High Definition Video MP4',
-	'302': 'High Definition Video WebM',
-	'303': 'Full High Definition Video WebM',
+  '298': 'High Definition Video MP4 60 fps',
+  '299': 'Full High Definition Video MP4 60 fps',
+  '302': 'High Definition Video WebM 60 fps',
+  '303': 'Full High Definition Video WebM 60 fps',
 	'313': 'Ultra High Definition Video WebM'
       };
       var ytVideoFound = false;
