@@ -689,6 +689,10 @@ function playDASHwithHTML5() {
 function playMyVideo(play) {
   if (play) {
     if (option['plugin'] == 'VTP') {
+          if ((player['videoPlay'].indexOf('Video') != -1)&&(option['addSound'])) {
+    page.win.location.href = 'viewtube:' + player['videoList'][player['videoPlay']] + '|' + player['videoList']['High Bitrate Audio Opus'];
+  }
+    else {
       if (player['videoList'][player['videoPlay']] != 'DASH') {
 	page.win.location.href = 'viewtube:' + player['videoList'][player['videoPlay']];
       }
@@ -702,6 +706,7 @@ function playMyVideo(play) {
       }
       return;
     }
+  }
     player['isPlaying'] = true;
     modifyMyElement(player['buttonPlay'], 'div', 'Stop', false);
     styleMyElement(player['buttonPlay'], {color: '#AD0000'});
