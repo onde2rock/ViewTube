@@ -95,7 +95,7 @@ var page = {win: window, doc: document, body: document.body, url: window.locatio
 // Player
 var player = {};
 var feature = {'autoplay': true, 'definition': true, 'container': true, 'dash': false, 'direct': false, 'widesize': true, 'fullsize': true};
-var option = {'plugin': 'Auto', 'autoplay': false, 'autoget': false, 'definition': 'HD', 'container': 'MP4', 'dash': false,'addSound': false, 'direct': false, 'widesize': false, 'fullsize': false};
+var option = {'plugin': 'Auto', 'autoplay': false, 'autoget': false, 'definition': 'HD', 'container': 'MP4', 'dash': false, 'addSound': false, 'direct': false, 'widesize': false, 'fullsize': false};
 var plugins = ['Auto', 'Alt', 'HTML5', 'VLC', 'MP4', 'MPEG', 'FLV', 'VTP'];
 if (navigator.platform.indexOf('Win') != -1) plugins = plugins.concat(['WMP', 'WMP2', 'QT']);
 else if (navigator.platform.indexOf('Mac') != -1) plugins = plugins.concat(['QT']);
